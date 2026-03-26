@@ -109,6 +109,31 @@
   font-size: 15px;
 }
 
+.carousel-link {
+  margin-top: 24px;
+}
+
+.carousel-link a {
+  display: inline-block;
+  padding: 10px 24px;
+  background: var(--accentColor);
+  color: var(--backgroundColor);
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.carousel-link a:hover {
+  background: #fff;
+  color: var(--backgroundColor);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(94, 234, 212, 0.3);
+}
+
 .carousel-image-wrapper {
   flex: 1;
   min-width: 0;

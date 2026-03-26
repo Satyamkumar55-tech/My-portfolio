@@ -5,16 +5,11 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Prompt Charades",
-    category: "AI Voice Agent Game",
-    tools: "ElevenLabs API, Lovable",
-    image: "/images/prompt-charades.png.png",
-  },
-  {
     title: "ImageGen - AI Image Generator",
     category: "AI Web Application",
     tools: "Lovable, AI APIs",
     image: "/images/imagegen.png.png",
+    liveLink: "https://imagicraft-ai-lab.lovable.app/",
   },
 ];
 
@@ -94,10 +89,22 @@ const Work = () => {
                           <span className="tools-label">Tools & Features</span>
                           <p>{project.tools}</p>
                         </div>
+                        {project.liveLink && (
+                          <div className="carousel-link">
+                            <a
+                              href={project.liveLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              data-cursor="disable"
+                            >
+                              View Live Project
+                            </a>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="carousel-image-wrapper">
-                      <WorkImage image={project.image} alt={project.title} />
+                      <WorkImage image={project.image} alt={project.title} link={project.liveLink} />
                     </div>
                   </div>
                 </div>
