@@ -11,6 +11,13 @@ const projects = [
     image: "/images/imagegen.png.png",
     liveLink: "https://imagicraft-ai-lab.lovable.app/",
   },
+  {
+    title: "Prompt Charades - AI Voice Game",
+    category: "AI Web Application",
+    tools: "Next.js, Retell AI, Tailwind CSS",
+    image: "/images/prompt-charades.png.png",
+    liveLink: "https://prompt-charades.vercel.app/",
+  },
 ];
 
 const Work = () => {
