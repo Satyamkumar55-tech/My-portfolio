@@ -5,18 +5,18 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
+    title: "Prompt Charades - AI Voice Game",
+    category: "AI Web Application",
+    tools: "Next.js, Retell AI, Tailwind CSS",
+    image: "/images/prompt_charades.png",
+    liveLink: "https://prompt-charades.vercel.app/",
+  },
+  {
     title: "ImageGen - AI Image Generator",
     category: "AI Web Application",
     tools: "Lovable, AI APIs",
     image: "/images/imagegen.png.png",
     liveLink: "https://imagicraft-ai-lab.lovable.app/",
-  },
-  {
-    title: "Prompt Charades - AI Voice Game",
-    category: "AI Web Application",
-    tools: "Next.js, Retell AI, Tailwind CSS",
-    image: "/images/prompt-charades.png.png",
-    liveLink: "https://prompt-charades.vercel.app/",
   },
 ];
 
