@@ -19,14 +19,20 @@ const Contact = () => {
           </div>
           <div className="contact-box">
             <h4>Social</h4>
-            <a
-              href="https://github.com/Satyamkumar55-tech?tab=overview&from=2026-03-01&to=2026-03-22"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Github <MdArrowOutward />
-            </a>
+           <a
+  href="https://github.com/Satyamkumar55-tech"
+  target="_blank"
+  data-cursor="disable"
+  className="contact-social"
+>
+  Github <MdArrowOutward />
+  <div className="profile-popup">
+    <img src="/images/Github Profile photo.png" alt="Profile" />
+    <h4>Satyamkumar Singh</h4>
+    <p>THIS IS MY GITHUB PROFILE</p>
+  </div>
+</a>
+
             <a
               href="https://www.linkedin.com/in/satyamkumar-singh-a32041378/"
               target="_blank"
@@ -34,7 +40,13 @@ const Contact = () => {
               className="contact-social"
             >
               Linkedin <MdArrowOutward />
-            </a>
+       <div className="profile-popup">
+    <img src="/images/LinkedIn Profile photo.png" alt="Profile" />
+    <h4>Satyamkumar Singh</h4>
+    <p>THIS IS MY LINKEDIN PROFILE</p>
+  </div>
+</a>
+
           </div>
           <div className="contact-box">
             <h2>

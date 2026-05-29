@@ -35,9 +35,68 @@
   margin-bottom: 20px;
 }
 
-a.contact-social {
-  font-size: 25px;
-  border-bottom: 1px solid #ccc;
+.contact-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+
+.contact-social svg {
+  transition: transform 0.3s ease;
+}
+
+.contact-social:hover svg {
+  transform: rotate(90deg);
+}
+
+
+.social-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.profile-popup {
+  display: none;
+  background: #111;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  width: 100%;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.profile-popup img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.contact-social:hover + .profile-popup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.contact-box {
+  position: relative;
+}
+
+.contact-social:hover .profile-popup {
+  display: flex;
+  align-items: center;
+}
+
+
+.contact-social:hover .profile-popup {
+  display: block;
 }
 
 .contact-box h2 {
