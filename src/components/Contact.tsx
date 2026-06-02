@@ -17,7 +17,7 @@ const Contact = () => {
             <h4>Education</h4>
             <p>B.E. AI & Data Science</p>
           </div>
-          <div className="contact-box">
+           <div className="contact-box">
             <h4>Social</h4>
            <a
   href="https://github.com/Satyamkumar55-tech"
@@ -27,9 +27,13 @@ const Contact = () => {
 >
   Github <MdArrowOutward />
   <div className="profile-popup">
-    <img src="/images/Github Profile photo.png" alt="Profile" />
-    <h4>Satyamkumar Singh</h4>
-    <p>THIS IS MY GITHUB PROFILE</p>
+    <div className="profile-popup-left">
+      <img src="/images/Github Profile photo.png" alt="Profile" />
+    </div>
+    <div className="profile-popup-right">
+      <h4>Satyamkumar Singh</h4>
+      <p>AI & Data Science Student | Focused on Learning & Innovation | Passionate about exploring how AI can be applied in real-world scenarios</p>
+    </div>
   </div>
 </a>
 
@@ -41,9 +45,13 @@ const Contact = () => {
             >
               Linkedin <MdArrowOutward />
        <div className="profile-popup">
-    <img src="/images/LinkedIn Profile photo.png" alt="Profile" />
-    <h4>Satyamkumar Singh</h4>
-    <p>THIS IS MY LINKEDIN PROFILE</p>
+    <div className="profile-popup-left">
+      <img src="/images/LinkedIn Profile photo.png" alt="Profile" />
+    </div>
+    <div className="profile-popup-right">
+      <h4>Satyamkumar Singh</h4>
+      <p>Artificial intelligence & Data Science Student | Passionate about exploring how AI can be applied in real-world scenarios.</p>
+    </div>
   </div>
 </a>
 
