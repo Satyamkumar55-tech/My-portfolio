@@ -14,16 +14,16 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>B.E. in AI & Data Science</h4>
-                <h5>Vidyavardhini’s College of Engineering and Technology, Mumbai University</h5>
+                <h4>Secondary School (10th)</h4>
+                <h5>L.C.C.S english medium high school</h5>
               </div>
-              <h3>2024–2028</h3>
+              <h3>2021-22</h3>
             </div>
             <p>
-              Currently pursuing my Bachelor of Engineering in Artificial Intelligence & Data Science. Building strong foundations in programming and AI integration.
+              Completed Secondary School Certificate (SSC) Board with 89.40% score.
             </p>
           </div>
-          <div className="career-info-box">
+           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
                 <h4>Higher Secondary (12th) - PCMB</h4>
@@ -33,6 +33,18 @@ const Career = () => {
             </div>
             <p>
               Completed Higher Secondary Certificate (HSC) Board with 78.83% score.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>B.E. in AI & Data Science</h4>
+                <h5>Vidyavardhini’s College of Engineering and Technology, Mumbai University</h5>
+              </div>
+              <h3>2024–2028</h3>
+            </div>
+            <p>
+              Currently pursuing my Bachelor of Engineering in Artificial Intelligence & Data Science. Building strong foundations in programming and AI integration.
             </p>
           </div>
         </div>
