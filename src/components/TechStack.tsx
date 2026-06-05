@@ -23,8 +23,9 @@ const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(30)].map(() => ({
+const spheres = [...Array(30)].map((_, i) => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
+  materialIndex: i % 5,
 }));
 
 type SphereProps = {
@@ -33,6 +34,8 @@ type SphereProps = {
   r?: typeof THREE.MathUtils.randFloatSpread;
   material: THREE.MeshPhysicalMaterial;
   isActive: boolean;
+  isHovered: boolean;
+  index: number;
 };
 
 function SphereGeo({
@@ -41,24 +44,68 @@ function SphereGeo({
   r = THREE.MathUtils.randFloatSpread,
   material,
   isActive,
+  isHovered,
+  index,
 }: SphereProps) {
   const api = useRef<RapierRigidBody | null>(null);
+
+  const col = index % 5;
+  const row = Math.floor(index / 5);
+  const targetPos = useMemo(() => new THREE.Vector3((col - 2) * 3.2, (row - 2.5) * 1.8, 0), [col, row]);
 
   useFrame((_state, delta) => {
     if (!isActive) return;
     delta = Math.min(0.1, delta);
-    const impulse = vec
-      .copy(api.current!.translation())
-      .normalize()
-      .multiply(
-        new THREE.Vector3(
-          -50 * delta * scale,
-          -150 * delta * scale,
-          -50 * delta * scale
-        )
-      );
 
-    api.current?.applyImpulse(impulse, true);
+    if (isHovered) {
+      if (!api.current) return;
+      api.current.setLinvel({ x: 0, y: 0, z: 0 }, true);
+      api.current.setAngvel({ x: 0, y: 0, z: 0 }, true);
+
+      // 1. Calculate target position with floating animation
+      const time = _state.clock.getElapsedTime();
+      const floatOffset = Math.sin(time * 2 + index) * 0.15;
+      const target = targetPos.clone();
+      target.y += floatOffset;
+
+      // 2. Mouse magnetic interactive push effect
+      const mouseX = (_state.pointer.x * _state.viewport.width) / 2;
+      const mouseY = (_state.pointer.y * _state.viewport.height) / 2;
+      const mousePos = new THREE.Vector3(mouseX, mouseY, 0);
+      const dist = target.distanceTo(mousePos);
+      if (dist < 4) {
+        const dir = new THREE.Vector3().subVectors(target, mousePos).normalize();
+        const pushStrength = (4 - dist) * 0.35;
+        target.addScaledVector(dir, pushStrength);
+      }
+
+      // Lerp position
+      const currentPos = api.current.translation();
+      const currentVec = new THREE.Vector3(currentPos.x, currentPos.y, currentPos.z);
+      const nextPos = currentVec.lerp(target, 0.1);
+      api.current.setTranslation(nextPos, true);
+
+      // Lerp rotation to identity (facing front)
+      const currentRot = api.current.rotation();
+      const currentQ = new THREE.Quaternion(currentRot.x, currentRot.y, currentRot.z, currentRot.w);
+      const targetQ = new THREE.Quaternion(0, 0, 0, 1);
+      currentQ.slerp(targetQ, 0.1);
+      api.current.setRotation(currentQ, true);
+    } else {
+      // Original physics/clump pull
+      const impulse = vec
+        .copy(api.current!.translation())
+        .normalize()
+        .multiply(
+          new THREE.Vector3(
+            -50 * delta * scale,
+            -150 * delta * scale,
+            -50 * delta * scale
+          )
+        );
+
+      api.current?.applyImpulse(impulse, true);
+    }
   });
 
   return (
@@ -70,11 +117,12 @@ function SphereGeo({
       ref={api}
       colliders={false}
     >
-      <BallCollider args={[scale]} />
+      <BallCollider args={[scale]} sensor={isHovered} />
       <CylinderCollider
         rotation={[Math.PI / 2, 0, 0]}
         position={[0, 0, 1.2 * scale]}
         args={[0.15 * scale, 0.275 * scale]}
+        sensor={isHovered}
       />
       <mesh
         castShadow
@@ -91,13 +139,18 @@ function SphereGeo({
 type PointerProps = {
   vec?: THREE.Vector3;
   isActive: boolean;
+  isHovered: boolean;
 };
 
-function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
+function Pointer({ vec = new THREE.Vector3(), isActive, isHovered }: PointerProps) {
   const ref = useRef<RapierRigidBody>(null);
 
   useFrame(({ pointer, viewport }) => {
     if (!isActive) return;
+    if (isHovered) {
+      ref.current?.setNextKinematicTranslation(new THREE.Vector3(100, 100, 100));
+      return;
+    }
     const targetVec = vec.lerp(
       new THREE.Vector3(
         (pointer.x * viewport.width) / 2,
@@ -123,6 +176,7 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
 
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -164,7 +218,11 @@ const TechStack = () => {
   }, []);
 
   return (
-    <div className="techstack">
+    <div
+      className="techstack"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <h2> My Techstack</h2>
 
       <Canvas
@@ -185,13 +243,15 @@ const TechStack = () => {
         />
         <directionalLight position={[0, 5, -4]} intensity={2} />
         <Physics gravity={[0, 0, 0]}>
-          <Pointer isActive={isActive} />
+          <Pointer isActive={isActive} isHovered={isHovered} />
           {spheres.map((props, i) => (
             <SphereGeo
               key={i}
-              {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              index={i}
+              scale={props.scale}
+              material={materials[props.materialIndex]}
               isActive={isActive}
+              isHovered={isHovered}
             />
           ))}
         </Physics>
