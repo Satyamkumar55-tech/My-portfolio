@@ -48,6 +48,10 @@ function SphereGeo({
   index,
 }: SphereProps) {
   const api = useRef<RapierRigidBody | null>(null);
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  const rotationSpeed = useMemo(() => (Math.random() > 0.5 ? 1 : -1) * (0.15 + Math.random() * 0.25), []);
+  const initialRotation = useMemo(() => new THREE.Euler(0.3, Math.random() * Math.PI * 2, 1), []);
 
   const col = index % 5;
   const row = Math.floor(index / 5);
@@ -56,6 +60,10 @@ function SphereGeo({
   useFrame((_state, delta) => {
     if (!isActive) return;
     delta = Math.min(0.1, delta);
+
+    if (meshRef.current) {
+      meshRef.current.rotation.y += delta * rotationSpeed;
+    }
 
     if (isHovered) {
       if (!api.current) return;
@@ -125,12 +133,13 @@ function SphereGeo({
         sensor={isHovered}
       />
       <mesh
+        ref={meshRef}
         castShadow
         receiveShadow
         scale={scale}
         geometry={sphereGeometry}
         material={material}
-        rotation={[0.3, 1, 1]}
+        rotation={initialRotation}
       />
     </RigidBody>
   );
