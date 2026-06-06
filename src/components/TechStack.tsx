@@ -23,7 +23,7 @@ const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(30)].map((_, i) => ({
+const spheres = [...Array(20)].map((_, i) => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
   materialIndex: i % 5,
 }));
@@ -81,7 +81,7 @@ function SphereGeo({
       const topMargin = _state.viewport.height * 0.28;
       const bottomMargin = 1.0;
       const gridHeight = _state.viewport.height - topMargin - bottomMargin;
-      const rowSpacing = gridHeight / 5;
+      const rowSpacing = gridHeight / 3;
       const targetY = -_state.viewport.height / 2 + bottomMargin + row * rowSpacing;
 
       target.set(targetX, targetY + floatOffset, 0);
