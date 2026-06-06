@@ -55,7 +55,7 @@ function SphereGeo({
 
   const col = index % 5;
   const row = Math.floor(index / 5);
-  const targetPos = useMemo(() => new THREE.Vector3((col - 2) * 3.2, (row - 2.5) * 1.8, 0), [col, row]);
+  const target = useMemo(() => new THREE.Vector3(), []);
 
   useFrame((_state, delta) => {
     if (!isActive) return;
@@ -73,8 +73,18 @@ function SphereGeo({
       // 1. Calculate target position with floating animation
       const time = _state.clock.getElapsedTime();
       const floatOffset = Math.sin(time * 2 + index) * 0.15;
-      const target = targetPos.clone();
-      target.y += floatOffset;
+
+      const gridWidth = Math.min(_state.viewport.width * 0.75, 13.0);
+      const colSpacing = gridWidth / 4;
+      const targetX = (col - 2) * colSpacing;
+
+      const topMargin = _state.viewport.height * 0.28;
+      const bottomMargin = 1.0;
+      const gridHeight = _state.viewport.height - topMargin - bottomMargin;
+      const rowSpacing = gridHeight / 5;
+      const targetY = -_state.viewport.height / 2 + bottomMargin + row * rowSpacing;
+
+      target.set(targetX, targetY + floatOffset, 0);
 
       // 2. Mouse magnetic interactive push effect
       const mouseX = (_state.pointer.x * _state.viewport.width) / 2;
