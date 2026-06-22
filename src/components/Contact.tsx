@@ -32,7 +32,7 @@ const Contact = () => {
     </div>
     <div className="profile-popup-right">
       <h4>Satyamkumar Singh</h4>
-      <p>AI & Data Science Student | Focused on Learning & Innovation | Passionate about exploring how AI can be applied in real-world scenarios</p>
+      <p>🤖 AI & Data Science Undergraduate | 🧠 Learning DSA | 🌐 Backend Development | 🚀 Building Real-World Projects</p>
     </div>
   </div>
 </a>
@@ -50,7 +50,7 @@ const Contact = () => {
     </div>
     <div className="profile-popup-right">
       <h4>Satyamkumar Singh</h4>
-      <p>Artificial intelligence & Data Science Student | Passionate about exploring how AI can be applied in real-world scenarios.</p>
+      <p>AI & Data Science Student | Learning DSA & Backend Development | Building AI-Powered Projects 🚀.</p>
     </div>
   </div>
 </a>
