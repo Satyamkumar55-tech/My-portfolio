@@ -2,7 +2,7 @@
 
 Welcome to my 3D Developer Portfolio! This interactive web experience showcases my projects, skills, and background using immersive 3D graphics and smooth scroll animations.
 
-🔗 **Live Demo:** [https://my-portfolio-xi-gray-89.vercel.app/](https://my-portfolio-xi-gray-89.vercel.app/)
+🔗 **URL:** [https://my-portfolio-xi-gray-89.vercel.app/](https://my-portfolio-xi-gray-89.vercel.app/)
 
 ## ✨ Features
 - **Immersive 3D Experience:** Built with Three.js and React Three Fiber to bring the portfolio to life.
