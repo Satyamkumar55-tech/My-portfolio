@@ -6,7 +6,6 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-        About Me
 
 I'm a full-stack developer focused on building modern, scalable, and user-friendly web applications. I enjoy turning ideas into functional products, from intuitive interfaces to robust backend systems.
 
