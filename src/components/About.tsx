@@ -6,7 +6,15 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          AI & Data Science engineering student with strong foundations in programming and AI integration. Passionate about building intelligent applications, creative web solutions, and contributing to impactful projects while continuously learning and refining technical expertise.
+        About Me
+
+I'm a full-stack developer focused on building modern, scalable, and user-friendly web applications. I enjoy turning ideas into functional products, from intuitive interfaces to robust backend systems.
+
+I work with technologies like React, Next.js, Node.js, MySQL and MongoDB, while continuously improving my problem-solving skills through DSA and hands-on projects.
+
+I believe in learning by building, solving real problems, and continuously improving what I create.
+
+
         </p>
       </div>
     </div>
