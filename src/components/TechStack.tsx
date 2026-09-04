@@ -18,14 +18,20 @@ const imageUrls = [
   "/images/css.png",
   "/images/cpp.png",
   "/images/mysql.webp",
+  "/images/mongo.webp",
+  "/images/react.webp",
+  "/images/node.webp",
+  "/images/next.webp",
+  "/images/typescript.webp",
+  "/images/express.webp",
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(20)].map((_, i) => ({
+const spheres = [...Array(22)].map((_, i) => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
-  materialIndex: i % 5,
+  materialIndex: i % imageUrls.length,
 }));
 
 type SphereProps = {
