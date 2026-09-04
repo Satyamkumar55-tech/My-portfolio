@@ -34,33 +34,33 @@
 }
 .what-box-in {
   flex-direction: column;
-  height: 500px;
+  height: 580px;
   margin-left: 200px;
   position: relative;
   display: none;
 }
 .what-content {
   width: 450px;
-  height: 33%;
+  height: 50%;
   min-height: 50%;
   transition: 0.5s;
   /* border: 0.5px dashed rgba(255, 255, 255, 0.3); */
   position: relative;
-  padding: 50px;
+  padding: 30px 40px;
   box-sizing: border-box;
 }
 
 .what-noTouch:hover,
 .what-content-active {
-  min-height: 67%;
-  padding: 40px 50px;
+  min-height: 65%;
+  padding: 25px 40px;
 }
 
 .what-noTouch:hover ~ .what-content,
 .what-box-in:hover .what-noTouch:not(:hover),
 .what-content.what-sibling {
-  min-height: 33%;
-  padding: 10px 50px;
+  min-height: 35%;
+  padding: 15px 40px;
 }
 .what-content h3 {
   font-size: 35px;
@@ -199,7 +199,7 @@
   animation: whatBorders 1.2s 1 forwards;
 }
 .what-border2 svg {
-  height: 500px;
+  height: 100%;
   top: 50%;
   transform: translateY(-50%);
   position: absolute;
@@ -249,13 +249,14 @@
     margin-right: 20%;
   }
   .what-box-in {
-    height: 400px;
+    height: 550px;
+    margin-left: 50px;
   }
   .what-content h3 {
     font-size: 28px;
   }
   .what-content {
-    padding: 30px;
+    padding: 20px 30px;
     width: 400px;
   }
   .what-content p {
@@ -275,14 +276,6 @@
     font-size: 12px;
   }
 }
-@media only screen and (max-width: 1400px) {
-  .what-box-in {
-    margin-left: 50px;
-  }
-  .what-content {
-    width: 380px;
-  }
-}
 @media only screen and (max-width: 1024px) {
   .whatIDO {
     height: auto;
@@ -290,11 +283,11 @@
     padding-bottom: 50px;
   }
   .what-box-in {
-    height: 500px;
+    height: 560px;
     margin-left: -50px;
   }
   .what-content {
-    padding: 50px;
+    padding: 25px 30px;
     width: 500px;
   }
   .what-content p {
@@ -302,15 +295,15 @@
   }
   .what-noTouch:hover,
   .what-content-active {
-    min-height: 67%;
-    padding: 50px;
+    min-height: 65%;
+    padding: 25px 30px;
   }
 
   .what-noTouch:hover ~ .what-content,
   .what-box-in:hover .what-noTouch:not(:hover),
   .what-content.what-sibling {
-    min-height: 33%;
-    padding: 10px 50px;
+    min-height: 35%;
+    padding: 10px 30px;
   }
 }
 @media only screen and (max-width: 900px) {
@@ -326,7 +319,7 @@
     justify-content: left;
   }
   .what-box:last-child {
-    height: 500px;
+    height: 560px;
   }
   .what-box {
     width: 500px;
@@ -338,7 +331,7 @@
   }
   .what-box-in {
     margin-left: 0px;
-    height: 450px;
+    height: 540px;
   }
   .what-content h5,
   .what-content-flex {
