@@ -87,18 +87,18 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>CORE SKILLS</h3>
-              <h4>AI & Data Science</h4>
+              <h3>FULL-STACK DEVELOPMENT</h3>
+              <h4>Web Development</h4>
               <p>
-                Building intelligent and analytical applications. Strong foundation in object-oriented programming and database management.
+              Building complete web applications with responsive frontends, REST APIs, backend logic, and database integration.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Python</div>
-                <div className="what-tags">Java</div>
-                <div className="what-tags">C++</div>
-                <div className="what-tags">SQL</div>
-                <div className="what-tags">MySQL</div>
+                <div className="what-tags">React</div>
+                <div className="what-tags">Next.js</div>
+                <div className="what-tags">Javascript</div>
+                <div className="what-tags">HTML/CSS</div>
+                <div className="what-tags">REST APIs</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -122,21 +122,20 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>WEB & TOOLS</h3>
-              <h4>Web Technologies & Platforms</h4>
+              <h3>BACKEND & DATABASES</h3>
+              <h4>Server-Side Development</h4>
               <p>
-                Familiarity with frontend development, version control, and modern creative tools to bring web projects and designs to life.
+              Developing robust backend systems, APIs, and data-driven applications using modern frameworks, databases, and development tools.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">HTML</div>
-                <div className="what-tags">CSS</div>
-                <div className="what-tags">JavaScript</div>
+                <div className="what-tags">Node.js</div>
+                <div className="what-tags">Express.js</div>
+                <div className="what-tags">C++</div>
                 <div className="what-tags">Git</div>
                 <div className="what-tags">GitHub</div>
-                <div className="what-tags">VS Code</div>
-                <div className="what-tags">Lovable</div>
-                <div className="what-tags">Canva</div>
+                <div className="what-tags">MongoDB</div>
+                <div className="what-tags">MySQL</div>
               </div>
               <div className="what-arrow"></div>
             </div>
