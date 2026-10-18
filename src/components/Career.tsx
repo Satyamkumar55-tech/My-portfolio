@@ -26,7 +26,7 @@ const Career = () => {
            <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Higher Secondary (12th) - PCMB</h4>
+                <h4>Higher Secondary (12th) - PCMB+IT</h4>
                 <h5>Sonopant Dandekar Shikshan Mandali Jr. College, Palghar</h5>
               </div>
               <h3>2023-24</h3>
